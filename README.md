@@ -1,4 +1,55 @@
-# Middle Regime Intelligence Studio — Streamlit Deployment Build
+# Middle Regime Intelligence Studio — Streamlit Research App
+
+A Streamlit research studio for **Finder regime data**: symbol-first analysis
+of regime structure — distributions, clusters, anomalies, transitions,
+similar-history matching, and forecasting — plus a **Loss Analysis** page that
+compares a loss/trade-history file against the full Finder history.
+
+This is a **research tool**. Its outputs describe historical structure and
+conditional relationships; they are not guarantees of future trading outcomes.
+
+## Run it
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Streamlit entrypoint: `app.py`. On startup the included Finder CSV is
+auto-detected; you can also upload another Finder dataset from any visible
+research page (each page has the same Finder uploader in its sidebar).
+
+## What you can do
+
+- **Symbol-first analysis** — pick a symbol and every calculation uses that
+  symbol's actual rows: distributions, clusters, anomalies, transitions,
+  similar-history results, and the forecast input row.
+- **Decision-first analysis** — Strategy Decision, Decision Direction, rank,
+  and regime state stay available for research and ML targets.
+- **Prediction Lab / Pattern Recognition** — each page independently resolves
+  the shared Finder dataset (no need to open Home first).
+- **Loss Analysis** (🧯) — upload a separate loss/trade-history CSV/XLSX,
+  map non-standard columns if needed, and get symbol loss-rate comparison,
+  relative-risk lift, decision/regime/bias condition lift, recurring
+  loss-combination mining, loss-reason counts, contextual insights, and
+  downloadable enriched results.
+- **Placeholder zeros removed** — a metric shows as `—` when its source field
+  is unavailable, instead of pretending the result is zero.
+
+## Structure
+
+| Path | What it is |
+|---|---|
+| `app.py` | Streamlit entrypoint |
+| `common.py` | Shared helpers / Finder dataset resolution |
+| `pages/` | Research pages (Prediction Lab, Pattern Recognition, Loss Analysis, …) |
+| `background/` | Background feature engineering / data processing (hidden from navigation, prepared automatically) |
+| `requirements.txt` | Python dependencies |
+
+---
+
+## Build notes (from the previous README)
+
 
 ## What is fixed
 
